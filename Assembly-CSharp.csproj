@@ -41,6 +41,7 @@
      <Compile Include="Assets\Pixel Adventure 1\Assets\scripts\Frog.cs" />
      <Compile Include="Assets\Pixel Adventure 1\Assets\scripts\GameController.cs" />
      <Compile Include="Assets\Pixel Adventure 1\Assets\scripts\NextLevelPoint.cs" />
+     <Compile Include="Assets\Pixel Adventure 1\Assets\scripts\PauseMenu.cs" />
      <Compile Include="Assets\Pixel Adventure 1\Assets\scripts\Player.cs" />
      <Compile Include="Assets\Pixel Adventure 1\Assets\scripts\Saw.cs" />
      <Compile Include="Assets\Pixel Adventure 1\Assets\scripts\Trampoline.cs" />
