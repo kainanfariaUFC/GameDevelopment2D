@@ -39,11 +39,11 @@ public class Frog : MonoBehaviour
             speed = -speed;
         }
     }
-
+    bool playerDestroyed = false;
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.tag == "Player"){
             float height = collision.contacts[0].point.y - headPoint.position.y;
-            if(height > 0){
+            if(height > 0 && !playerDestroyed){
                 collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 5, ForceMode2D.Impulse);
                 speed = 0;
                 boxCollider2D.enabled = false;
@@ -52,6 +52,10 @@ public class Frog : MonoBehaviour
                 ani.SetTrigger("hitFrog");
                 Destroy(gameObject, .33f);
                
+            }else{
+                playerDestroyed = true;
+                GameController.instance.ShowGameOver();
+                Destroy(collision.gameObject);
             }
         }
     }
