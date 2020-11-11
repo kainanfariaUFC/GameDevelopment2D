@@ -11,9 +11,12 @@ public class Apple : MonoBehaviour
     public GameObject collected;
     public int score;
 
+      public static Apple instance;
+
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         sr = GetComponent<SpriteRenderer>();
         cc = GetComponent<CircleCollider2D>();
     }

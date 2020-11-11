@@ -53,9 +53,11 @@ public class Frog : MonoBehaviour
                 Destroy(gameObject, .33f);
                
             }else{
-                playerDestroyed = true;
-                GameController.instance.ShowGameOver();
-                Destroy(collision.gameObject);
+
+                    playerDestroyed = true;
+                    GameController.instance.ShowGameOver();
+                    Destroy(collision.gameObject);
+                
             }
         }
     }

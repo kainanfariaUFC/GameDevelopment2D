@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float jumpForce;
     public bool isJumping;
     public bool doubleJump;
+    private AudioSource jumpAudio;
 
     private Rigidbody2D rgbdy;
     private Animator anime;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     {
         rgbdy = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
+        jumpAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
 
     void Jump(){
         if(Input.GetButtonDown("Jump")){
-           
+            jumpAudio.Play();
             if(!isJumping){
                 rgbdy.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 doubleJump = true;
@@ -74,8 +76,12 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
         if(collision.gameObject.tag == "Saw"){
-            GameController.instance.ShowGameOver();
-            Destroy(gameObject);
+            if( Apple.instance.score > 0) {
+                Apple.instance.score = 0;
+            }else{
+                GameController.instance.ShowGameOver();
+                Destroy(gameObject);
+            }
         }
     }
 

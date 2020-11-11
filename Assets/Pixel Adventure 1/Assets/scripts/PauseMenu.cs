@@ -36,7 +36,12 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu(){
         Time.timeScale = 1f;
         //need to change when menu is ready
-        SceneManager.LoadScene("level_3");
+        SceneManager.LoadScene("intro");
+    }
+
+    public void Restart(){
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void QuitMenu(){
